@@ -1,0 +1,29 @@
+<!-- home.component.html -->
+<div class="min-h-screen bg-gray-100">
+  <!-- Navbar -->
+  <app-nav-bar></app-nav-bar>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 bg-white shadow-md">
+    <h1 class="text-5xl font-bold text-gray-800 mb-6">Livraison de Plats à Domicile</h1>
+    <p class="text-lg text-gray-600 mb-8">Commandez chez les meilleurs restaurants autour de vous</p>
+    <div>
+      <a routerLink="/offers">
+        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+          Voir les offres
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <!-- Menu Aperçu rapide -->
+  <section class="py-16 px-6 bg-gray-50">
+    <h2 class="text-3xl font-semibold text-gray-800 text-center mb-10">Nos Plats Populaires</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!--   <app-product-card *ngFor="let product of popularProducts" [product]="product"></app-product-card>-->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>
