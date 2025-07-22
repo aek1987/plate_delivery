@@ -1,0 +1,50 @@
+.header {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid #374151;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.app-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcome-text {
+  font-size: 1rem;
+}
+
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}

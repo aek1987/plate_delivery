@@ -1,0 +1,24 @@
+.accueil-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.image-accueil {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.btn-decouvrir {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.btn-decouvrir:hover {
+  background-color: #218838;
+}

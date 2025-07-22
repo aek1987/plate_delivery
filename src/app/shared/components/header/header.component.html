@@ -1,1 +1,12 @@
-<p>header works!</p>
+
+<header class="header">
+  <div class="header-left">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <span class="app-name">Plate Delivery</span>
+  </div>
+
+  <div class="header-right" *ngIf="isLoggedIn">
+    <span class="welcome-text">Bienvenue, {{ userName }}</span>
+    <button class="logout-btn" (click)="logout()">Déconnexion</button>
+  </div>
+</header>

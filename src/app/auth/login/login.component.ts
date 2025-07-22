@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email = '';
-  password = '';
+  email: string = '';
+  password: string = '';
 
-  login() {
-    console.log('Login clicked:', this.email, this.password);
-    // ici, tu appelles ton authService
+  constructor(private router: Router) {}
+
+  onSubmit() {
+    if (this.email === 'admin@site.com' && this.password === 'admin') {
+      alert('Connexion réussie !');
+      this.router.navigate(['/dashboard']); // redirection
+    } else {
+      alert('Email ou mot de passe incorrect');
+    }
   }
 }
