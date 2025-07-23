@@ -1,5 +1,18 @@
-
+<!-- app.component.html -->
 <app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
 
+<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+  <div class="text-2xl font-bold text-blue-600">Plate Delivery</div>
+  <ul class="flex gap-6 text-gray-700">
+    <li><a routerLink="/dashboard" routerLinkActive="text-blue-500" class="hover:underline">Accueil</a></li>
+    <li><a routerLink="/mes-plats" routerLinkActive="text-blue-500" class="hover:underline">Mes Plats</a></li>
+    <li><a routerLink="/plats" routerLinkActive="text-blue-500" class="hover:underline">Plats</a></li>
+    <li><a routerLink="/commandes" routerLinkActive="text-blue-500" class="hover:underline">Commandes</a></li>
+    <li><a routerLink="/profil" routerLinkActive="text-blue-500" class="hover:underline">Profil</a></li>
+    <li><a routerLink="/login" routerLinkActive="text-blue-500" class="hover:underline">Connexion</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

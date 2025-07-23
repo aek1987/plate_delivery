@@ -1,12 +1,12 @@
-
-<header class="header">
-  <div class="header-left">
-    <img src="assets/logo.png" alt="Logo" class="logo" />
-    <span class="app-name">Plate Delivery</span>
+<div class="nav-bar">
+  <div class="nav-logo">Plate Delivery</div>
+  <div class="nav-links">
+    <a routerLink="/accueil" routerLinkActive="active">Accueil</a>
+    <a routerLink="/plats" routerLinkActive="active">Nos Plats</a>
+    <a routerLink="/mes-plats" routerLinkActive="active" *ngIf="isRestaurateur">Mes Plats</a>
+    <a routerLink="/commandes" routerLinkActive="active" *ngIf="isRestaurateur || isClient">Commandes</a>
+    <a routerLink="/profil" routerLinkActive="active" *ngIf="isLoggedIn">Profil</a>
+    <a routerLink="/login" routerLinkActive="active" *ngIf="!isLoggedIn">Connexion</a>
+    <button class="logout-btn" *ngIf="isLoggedIn" (click)="logout()">Déconnexion</button>
   </div>
-
-  <div class="header-right" *ngIf="isLoggedIn">
-    <span class="welcome-text">Bienvenue, {{ userName }}</span>
-    <button class="logout-btn" (click)="logout()">Déconnexion</button>
-  </div>
-</header>
+</div>
