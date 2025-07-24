@@ -1,12 +1,41 @@
-<div class="nav-bar">
-  <div class="nav-logo">Plate Delivery</div>
-  <div class="nav-links">
-    <a routerLink="/accueil" routerLinkActive="active">Accueil</a>
-    <a routerLink="/plats" routerLinkActive="active">Nos Plats</a>
-    <a routerLink="/mes-plats" routerLinkActive="active" *ngIf="isRestaurateur">Mes Plats</a>
-    <a routerLink="/commandes" routerLinkActive="active" *ngIf="isRestaurateur || isClient">Commandes</a>
-    <a routerLink="/profil" routerLinkActive="active" *ngIf="isLoggedIn">Profil</a>
-    <a routerLink="/login" routerLinkActive="active" *ngIf="!isLoggedIn">Connexion</a>
-    <button class="logout-btn" *ngIf="isLoggedIn" (click)="logout()">Déconnexion</button>
+<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a routerLink="/" class="text-xl font-bold text-blue-600">Quadza Software</a>
+      </div>
+
+    <app-nav-bar></app-nav-bar>
+
+      <!-- Actions -->
+      <div class="hidden md:flex items-center space-x-4">
+        <button class="btn btn-outline btn-sm">Se connecter</button>
+      </div>
+
+      <!-- Menu hamburger mobile -->
+      <div class="md:hidden">
+        <button (click)="toggleMenu()" class="text-gray-700 hover:text-blue-500 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+            <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
+
+  <!-- Menu mobile -->
+  <div *ngIf="isMenuOpen" class="md:hidden px-4 pb-4">
+    <nav class="flex flex-col space-y-2">
+      <a routerLink="/" class="text-gray-700 hover:text-blue-500">Accueil</a>
+      <a routerLink="/about" class="text-gray-700 hover:text-blue-500">À propos</a>
+      <a routerLink="/services" class="text-gray-700 hover:text-blue-500">Services</a>
+      <a routerLink="/contact" class="text-gray-700 hover:text-blue-500">Contact</a>
+      <button class="btn btn-outline btn-sm mt-2">Se connecter</button>
+    </nav>
+  </div>
+</header>

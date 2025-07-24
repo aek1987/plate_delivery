@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ListePlatsComponent } from './pages/restaurant-list/liste-plats.component';
+import { ListePlatsComponent } from './pages/plat-list/liste-plats.component';
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
 
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';

@@ -1,4 +1,4 @@
-<p>restaurant-list works!</p>
+
 <div class="plats-container">
   <h2>Nos plats</h2>
   <div class="plats-grid">
@@ -6,7 +6,7 @@
       <img [src]="plat.image" [alt]="plat.nom" class="plat-image" />
       <h3>{{ plat.nom }}</h3>
       <p>{{ plat.description }}</p>
-      <p class="prix">{{ plat.prix | currency:'EUR' }}</p>
+      <p class="prix">{{ plat.prix | currency:' DZ' }}</p>
       <button (click)="ajouterAuPanier(plat)">Ajouter au panier</button>
     </div>
   </div>
