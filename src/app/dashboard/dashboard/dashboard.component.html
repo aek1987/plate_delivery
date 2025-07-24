@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<h2>Mes Plats</h2>
+
+<form [formGroup]="platForm" (ngSubmit)="ajouterPlat()">
+  <label>Nom du plat:</label>
+  <input formControlName="nom" placeholder="Nom du plat" /><br />
+
+  <label>Prix:</label>
+  <input type="number" formControlName="prix" /><br />
+
+  <label>Localisation:</label>
+  <input formControlName="localisation" /><br />
+
+  <button type="submit" [disabled]="platForm.invalid">Ajouter</button>
+</form>
+
+<hr />
+
+<ul>
+  <li *ngFor="let plat of plats">
+    <strong>{{ plat.nom }}</strong> - {{ plat.prix }} DA - {{ plat.localisation }}
+    <button (click)="supprimerPlat(plat.id)">Supprimer</button>
+  </li>
+</ul>

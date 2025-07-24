@@ -6,7 +6,7 @@
       <img [src]="plat.image" [alt]="plat.nom" class="plat-image" />
       <h3>{{ plat.nom }}</h3>
       <p>{{ plat.description }}</p>
-      <p class="prix">{{ plat.prix | currency:' DZ' }}</p>
+      <p class="prix">{{ plat.prix | currency:'DZ' }}</p>
       <button (click)="ajouterAuPanier(plat)">Ajouter au panier</button>
     </div>
   </div>

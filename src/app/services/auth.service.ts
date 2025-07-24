@@ -1,37 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private isLoggedInStatus = false;
-  private userRole: 'client' | 'restaurateur' | null = null;
-  private userName: string = '';
-
   constructor() {}
 
-  login(role: 'client' | 'restaurateur', name: string): void {
-    this.isLoggedInStatus = true;
-    this.userRole = role;
-    this.userName = name;
-    // Tu peux stocker dans localStorage aussi si besoin
+  login(email: string, password: string): Observable<boolean> {
+    // 🔐 Simule une authentification (exemple avec un utilisateur fictif)
+    if (email === 'admin@example.com' && password === 'admin123') {
+      console.log('Utilisateur authentifié');
+      return of(true); // succès
+    } else {
+      console.log('Échec d\'authentification');
+      return of(false); // échec
+    }
   }
 
   logout(): void {
-    this.isLoggedInStatus = false;
-    this.userRole = null;
-    this.userName = '';
+    console.log('Déconnexion effectuée');
+    // ici, tu pourrais vider le localStorage, tokens, etc.
   }
 
-  isLoggedIn(): boolean {
-    return this.isLoggedInStatus;
-  }
-
-  getUserRole(): 'client' | 'restaurateur' | null {
-    return this.userRole;
-  }
-
-  getUserName(): string {
-    return this.userName;
+  isAuthenticated(): boolean {
+    // simulation : à améliorer avec des tokens ou localStorage
+    return true; // ou false selon ton cas
   }
 }
