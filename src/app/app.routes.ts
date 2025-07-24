@@ -8,12 +8,10 @@ import { RestaurantDetailsComponent } from './components/restaurant-details/rest
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 export const routes: Routes = [
- { path: '', component: HomeComponent },
+ { path: '', component: ListePlatsComponent },
  { path: 'accueil', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'plats', component: ListePlatsComponent },
-
-  { path: 'dashboard', component: DashboardComponent },
-  
+  { path: 'dashboard', component: DashboardComponent },  
   { path: 'restaurants/:id', component: RestaurantDetailsComponent },];
