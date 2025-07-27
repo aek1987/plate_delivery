@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CardRestaurantComponent } from "../../components/product-card/product-card.component";
+import { CardRestaurantComponent } from "../product-card/product-card.component";
+import { Product, ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.detectLocation();
+    this.productService.getPopularProducts().subscribe(products => {
+      this.popularProducts = products;
+    });
   }
+ 
 
+  constructor(private productService: ProductService) {}
+  
   detectLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(

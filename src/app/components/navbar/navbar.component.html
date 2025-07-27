@@ -10,11 +10,34 @@
     </button>
   </div>
 
-  <div [ngClass]="{ 'hidden': !isOpen }" class="md:flex md:items-center">
-    <a routerLink="/accueil" class="block md:inline-block px-3 py-2 text-gray-600 hover:text-blue-600">Accueil</a>
-    <a routerLink="/plats" class="block md:inline-block px-3 py-2 text-gray-600 hover:text-blue-600">Plats</a>
-    <a routerLink="/commandes" class="block md:inline-block px-3 py-2 text-gray-600 hover:text-blue-600">Commandes</a>
-    <a routerLink="/profil" class="block md:inline-block px-3 py-2 text-gray-600 hover:text-blue-600">Profil</a>
-    <a routerLink="/login" class="block md:inline-block px-3 py-2 text-gray-600 hover:text-blue-600">Connexion</a>
-  </div>
+  <div [ngClass]="{ 'hidden': !isOpen }" class="md:flex md:items-center space-x-4">
+  <a routerLink="/accueil" class="nav-link">
+    <i class="fas fa-home mr-2"></i> Accueil
+  </a>
+  
+  <a routerLink="/plats" class="nav-link">
+    <i class="fas fa-utensils mr-2"></i> Plats
+  </a>
+  
+  <a routerLink="/commandes" class="nav-link">
+    <i class="fas fa-receipt mr-2"></i> Commandes
+  </a>
+
+  <a routerLink="/profil" class="nav-link">
+    <i class="fas fa-user-circle mr-2"></i> Profil
+  </a>
+
+  <ng-container *ngIf="isLoggedIn; else loginLink">
+    <a routerLink="/profil" class="nav-link">
+      <i class="fas fa-user-check mr-2"></i> {{ userName }}
+    </a>
+  </ng-container>
+
+  <ng-template #loginLink>
+    <a routerLink="/login" class="nav-link">
+      <i class="fas fa-sign-in-alt mr-2"></i> Connexion
+    </a>
+  </ng-template>
+</div>
+
 </nav>

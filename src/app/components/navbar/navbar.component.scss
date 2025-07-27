@@ -46,3 +46,20 @@
   background-color: #1abc9c;
   color: #fff;
 }
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #3B82F6; /* blue-500 */
+  transition: width 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.nav-link {
+  @apply block md:inline-block px-3 py-2 text-gray-600 hover:text-blue-600 transition duration-200 relative;
+}
+.nav-link:hover::after {
+  width: 100%;
+}

@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
 })
 export class NavBarComponent {
   isOpen = false;
+  isLoggedIn = true;
+userName = 'Kader';
+
 
   toggleMenu() {
     this.isOpen = !this.isOpen;
