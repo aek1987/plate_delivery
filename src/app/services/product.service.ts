@@ -14,7 +14,7 @@ export interface Product {
 export class ProductService {
   private popularProducts: Product[] = [
     { id: 1, name: 'Pizza Margherita', image: 'assets/images/pizza.jpg', price: 12.99 },
-    { id: 2, name: 'Plat varié', image: 'assets/images/sushi.jpg', price: 19.99 },
+    { id: 2, name: 'Suchi', image: 'assets/images/sushi.jpg', price: 19.99 },
     { id: 3, name: 'Tacos', image: 'assets/images/tacos.jpg', price: 8.50 },
   ];
 

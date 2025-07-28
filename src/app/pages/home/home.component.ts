@@ -13,11 +13,7 @@ import { Product, ProductService } from '../../services/product.service';
 })
 export class HomeComponent implements OnInit {
 
-  popularProducts = [
-    { id: 1, name: 'Pizza Margherita', image: 'assets/images/pizza.jpg', price: 12.99 },
-    { id: 2, name: 'Sushi Box', image: 'assets/images/sushi.jpg', price: 19.99 },
-    { id: 3, name: 'Tacos', image: 'assets/images/tacos.jpg', price: 8.50 },
-  ];
+  popularProducts: Product[] = []; 
 
   locationMessage: string = 'Inconnue';
 
@@ -48,4 +44,13 @@ export class HomeComponent implements OnInit {
       this.locationMessage = '❌ Géolocalisation non prise en charge.';
     }
   }
+
+
+ plats: string[] = ['Pizza', 'Tacos', 'Burger', 'Couscous', 'Sushi'];
+
+searchPlat(plat: string) {
+  console.log('Recherche de :', plat);
+  // Naviguer vers une page ou filtrer les plats :
+  // this.router.navigate(['/plats'], { queryParams: { q: plat } });
+}
 }

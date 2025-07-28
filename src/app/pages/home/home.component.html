@@ -28,8 +28,22 @@
     >
       Rechercher
     </button>
+    
   </div>
   <div class="max-w-xl mx-auto mt-6 text-center">
+ <p class="text-center mt-6 text-gray-800">
+  Choisissez un plat :
+  <span
+    *ngFor="let plat of plats"
+    (click)="searchPlat(plat)"
+    class="text-blue-600 underline cursor-pointer hover:text-blue-800 mx-2"
+  >
+    {{ plat }}
+  </span>
+</p>
+
+
+ 
   <p id="locationInfo" class="text-gray-600 mb-2">📍 Votre position :  {{ locationMessage }}</p>
   
 </div>
@@ -40,8 +54,8 @@
 
 
 
-  <!-- Menu Aperçu rapide -->
-<!-- src/app/pages/home/home.component.html -->
+  
+<!-- des plat populaire-->
 <section class="py-16 px-6 bg-gray-50">
   <h2 class="text-3xl font-semibold text-gray-800 text-center mb-10">Nos Plats Populaires</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -49,14 +63,33 @@
   </div>
 </section>
 
+<section class="py-16 bg-white text-center">
+  <h2 class="text-3xl font-semibold text-gray-800 mb-10">Témoignages</h2>
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+      <p class="text-gray-600 italic">
+        "Excellent service ! Livraison rapide et plats délicieux."
+      </p>
+      <span class="block mt-4 text-sm text-gray-500">— Karim B., Alger</span>
+    </div>
+    
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+      <p class="text-gray-600 italic">
+        "Des plats savoureux, bien emballés et livrés à l'heure. Je recommande vivement."
+      </p>
+      <span class="block mt-4 text-sm text-gray-500">— Amina L., Oran</span>
+    </div>
+    
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+      <p class="text-gray-600 italic">
+        "Une expérience utilisateur simple et rapide. Bravo pour la qualité du service."
+      </p>
+      <span class="block mt-4 text-sm text-gray-500">— Yacine D., Constantine</span>
+    </div>
 
-  <section class="py-16 bg-white text-center">
-  <h2 class="text-3xl font-semibold text-gray-800 mb-6">Témoignages</h2>
-  <div class="max-w-3xl mx-auto text-gray-600 italic">
-    "Excellent service ! Livraison rapide et plats délicieux."  
-    <br />
-    <span class="text-sm text-gray-500">— Karim B., Alger</span>
   </div>
 </section>
+
 
 </div>
