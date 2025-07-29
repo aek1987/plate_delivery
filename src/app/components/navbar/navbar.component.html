@@ -26,6 +26,23 @@
   <a routerLink="/profil" class="nav-link">
     <i class="fas fa-user-circle mr-2"></i> Profil
   </a>
+<!-- Menu Dashboard avec sous-liens -->
+<div class="relative group">
+  <a class="nav-link cursor-pointer flex items-center">
+    <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+    
+  </a>
+
+  <!-- Sous-menu visible au survol -->
+  <div class="absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg hidden group-hover:block z-50">
+    <a routerLink="/dashboard/restaurants" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+      <i class="fas fa-store mr-2"></i> Gérer Restaurants
+    </a>
+    <a routerLink="/dashboard/plats" class="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+      <i class="fas fa-utensils mr-2"></i> Gérer Plats
+    </a>
+  </div>
+</div>
 
   <ng-container *ngIf="isLoggedIn; else loginLink">
     <a routerLink="/profil" class="nav-link">

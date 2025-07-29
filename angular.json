@@ -48,7 +48,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/plate_delivery/"
             },
             "development": {
               "optimization": false,
