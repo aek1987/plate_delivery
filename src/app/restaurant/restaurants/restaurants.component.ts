@@ -12,11 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class RestaurantsComponent implements OnInit {
   restaurants: Restaurant[] = [];
-
+  selectedPlat: string = '';
   constructor(private route: ActivatedRoute, private restaurantService: RestaurantService,private router: Router ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
+       this.selectedPlat = params['plat'];
       const plat = params['plat'];
       const lat = parseFloat(params['lat']);
       const lng = parseFloat(params['lng']);
@@ -24,8 +25,8 @@ export class RestaurantsComponent implements OnInit {
       this.restaurants = this.restaurantService.getRestaurantsProches(plat, lat, lng);
     });
   }
-  commander(id: number) {
-  // Rediriger vers la page de commande ou détails
-  this.router.navigate(['/commande'], { queryParams: { restoId: id } });
+ commander(id: number) {
+  this.router.navigate(['/commande'], { queryParams: { restoId: id, plat: this.selectedPlat } });
 }
+
 }

@@ -17,7 +17,7 @@ export class RestaurantService {
     lat: 36.752887,
     lng: 3.042048,
     adresse: "Rue Didouche Mourad, Alger",
-    image: "assets/images/restaurants/pizza_express.jpg"
+    image: "assets/images/restaurants/pizza_express.png"
   },
   {
     id: 2,
@@ -77,4 +77,9 @@ export class RestaurantService {
   private deg2rad(deg: number): number {
     return deg * (Math.PI / 180);
   }
+
+  getRestaurantById(id: number): Restaurant | undefined {
+  return this.restaurants.find(resto => resto.id === id);
+}
+
 }

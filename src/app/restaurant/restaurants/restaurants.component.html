@@ -1,34 +1,66 @@
 <!-- Arrière-plan -->
-<div class="min-h-screen bg-white text-gray-800 px-4 py-16">
+<div class="min-h-screen bg-cover bg-center relative" style="background-image: url('assets/images/bg-restaurants.png')">
+  <!-- Superposition sombre -->
+  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
 
+  <!-- Contenu principal -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 py-20 text-white">
+    <h2 class="text-4xl font-bold text-center mb-6">🍽️ Restaurants à Proximité</h2>
 
-  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <!-- Plat recherché -->
+    <p class="text-center text-xl mb-10">
+      Résultats pour le plat :
+      <span class="text-yellow-400 font-semibold">"{{ selectedPlat }}"</span>
+    </p>
 
-  <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 text-white">
-    <h2 class="text-4xl font-bold text-center mb-10">Restaurants à proximité</h2>
-
-    <div *ngIf="restaurants.length === 0" class="text-center text-lg text-white">
-      Aucun restaurant trouvé dans votre zone.
+    <!-- Message si aucun restaurant trouvé -->
+    <div *ngIf="restaurants.length === 0" class="text-center text-lg text-gray-200">
+      Aucun restaurant ne livre ce plat dans votre zone.
     </div>
 
-    <div *ngIf="restaurants.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div
-        *ngFor="let resto of restaurants"
-        class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition duration-300"
-      >
-        <img [src]="resto.image" alt="{{ resto.name }}" class="w-full h-40 object-cover" />
-        <div class="p-5">
-          <h3 class="text-xl font-bold mb-1">{{ resto.name }}</h3>
-          <p class="text-sm text-gray-600 mb-2"><i class="fas fa-map-marker-alt"></i> {{ resto.adresse }}</p>
-          <p><strong>Plats :</strong> {{ resto.plats.join(', ') }}</p>
-          <button
-            class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full text-sm"
-            (click)="commander(resto.id)"
-          >
-            Commander
-          </button>
-        </div>
+   <!-- Liste des restaurants -->
+<div *ngIf="restaurants.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div
+    *ngFor="let resto of restaurants"
+    class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 flex flex-col"
+  >
+ <div class="aspect-w-16 aspect-h-9">
+  <img
+    [src]="resto.image"
+    alt="{{ resto.name }}"
+    class="object-cover w-full h-full rounded-t-xl"
+  />
+</div>
+
+
+
+    <!-- Informations du restaurant -->
+    <div class="p-5 flex flex-col justify-between flex-grow">
+      <div>
+        <h4 class="text-xl font-bold mb-2 text-gray-800">{{ resto.name }}</h4>
+        <p class="text-sm text-gray-600 mb-2">
+          <i class="fas fa-map-marker-alt mr-1 text-blue-500"></i> {{ resto.adresse }}
+        </p>
+        <p class="text-sm text-gray-700">
+          <strong>Plats :</strong> {{ resto.plats.join(', ') }}
+        </p>
+         <p class="text-sm text-gray-700">
+          <strong>details :</strong> 
+        </p>
       </div>
+
+      <button
+        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full text-sm w-full"
+        (click)="commander(resto.id)"
+      >
+        Commander
+      </button>
+    </div>
+  </div>
+
+
+
+
     </div>
   </div>
 </div>
