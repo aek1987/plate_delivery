@@ -1,16 +1,18 @@
 <!-- Arrière-plan -->
-<div class="min-h-screen bg-cover bg-center relative" style="background-image: url('assets/images/bg-restaurants.png')">
+<div class="h-[800px] bg-cover bg-center" style="background-image: url('assets/images/restaurant.jpg')">
+
+
   <!-- Superposition sombre -->
-  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+  <div class="absolute inset-0 bg-white bg-opacity-70"></div>
 
   <!-- Contenu principal -->
-  <div class="relative z-10 max-w-6xl mx-auto px-4 py-20 text-white">
+  <div class="relative z-10 max-w-6xl mx-auto px-4 py-20 text-blue-600">
     <h2 class="text-4xl font-bold text-center mb-6">🍽️ Restaurants à Proximité</h2>
 
     <!-- Plat recherché -->
     <p class="text-center text-xl mb-10">
       Résultats pour le plat :
-      <span class="text-yellow-400 font-semibold">"{{ selectedPlat }}"</span>
+      <span class="text-red-400 font-semibold">"{{ selectedPlat }}"</span>
     </p>
 
     <!-- Message si aucun restaurant trouvé -->

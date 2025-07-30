@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Product, ProductService } from '../../services/product.service';
 import { FormsModule } from '@angular/forms';
-import { CardRestaurantComponent } from "../product-card/product-card.component";
+import { CardRestaurantComponent } from "../../restaurant/product-card/product-card.component";
 
 @Component({
   selector: 'app-home',
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-plats = ['Pizza', 'Tacos', 'Couscous', 'Sushi', 'Pâtes', 'Burger'];
+plats = ['Pizza', 'Tacos', 'Couscous', 'Poulet', 'Pâtes', 'Burger'];
 filteredPlats: string[] = [];
 
 onSearchChange() {

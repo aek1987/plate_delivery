@@ -15,13 +15,13 @@
       <div class="p-4">
         <h3 class="text-lg font-bold text-gray-800 mb-1">{{ plat.nom }}</h3>
         <p class="text-sm text-gray-600 mb-2">{{ plat.description }}</p>
-        <p class="text-blue-600 font-semibold">{{ plat.prix }} DZD</p>
+       <!--- <p class="text-blue-600 font-semibold">{{ plat.prix }} DZD</p>-->
 
         <button
-          (click)="ajouterAuPanier(plat)"
+          (click)="searchPlat( plat.nom)"
           class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded"
         >
-          Ajouter au panier
+          commander
         </button>
       </div>
     </div>

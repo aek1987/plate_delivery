@@ -1,15 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { Product, ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-liste-plats',
   standalone: true,
-  imports: [CommonModule], // ← ajoute ceci
+  imports: [CommonModule,RouterModule], // ← ajoute cecistandalone: true,
   templateUrl: './liste-plats.component.html',
   styleUrls: ['./liste-plats.component.scss']
 })
 export class ListePlatsComponent {
- plats = [
+searchTerm: string = '';
+popularProducts: Product[] = []; 
+  locationMessage: string = 'Inconnue';
+  clientLatitude: number | null = null;
+  clientLongitude: number | null = null;
+  plats = [
   {
     id: 1,
     nom: 'Pizza Margherita',
@@ -82,8 +89,24 @@ export class ListePlatsComponent {
   }
 ];
 
+ constructor(private productService: ProductService,private router: Router) {}
+searchPlat(plat: string) {
+  this.searchTerm = plat;
+  this.navigateToResults();
+}
 
-  ajouterAuPanier(plat: any) {
-    alert(`Plat ajouté au panier : ${plat.nom}`);
+navigateToResults() {
+  if (!this.searchTerm || !this.clientLatitude || !this.clientLongitude) {
+    alert("Veuillez choisir un plat et autoriser la géolocalisation.");
+    return;
   }
+
+  this.router.navigate(['/restaurants'], {
+    queryParams: {
+      plat: this.searchTerm,
+      lat: this.clientLatitude,
+      lng: this.clientLongitude
+    }
+  });
+}
 }

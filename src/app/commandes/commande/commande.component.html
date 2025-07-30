@@ -1,21 +1,47 @@
-<!-- Page centrée verticalement et horizontalement -->
-<div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-  <div class="max-w-xl w-full bg-white rounded-lg shadow p-6">
-    <h2 class="text-2xl font-bold mb-4 text-center">Commander : {{ selectedPlat }}</h2>
+<!-- Conteneur avec image de fond -->
+<div class="min-h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('assets/images/restaurant.jpg')">
+
+  <!-- Contenu centré -->
+  <div class="max-w-xl w-full bg-white bg-opacity-90 rounded-lg shadow p-6 m-4">
+    <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Commander : {{ selectedPlat }}</h2>
     
-    <p class="text-lg font-semibold text-blue-700 text-center">{{ restaurant?.name }}</p>
+    <p class="text-lg font-semibold text-blue-700 text-center">Chez {{ restaurant?.name }}</p>
     <p class="text-gray-600 mb-4 text-center">
       <i class="fas fa-map-marker-alt"></i> {{ restaurant?.adresse }}
     </p>
-<form class="space-y-4" (ngSubmit)="validerCommande()" #commandeForm="ngForm">
-  <input type="text" name="nom" [(ngModel)]="nom" placeholder="Nom complet" class="input" required>
-  <input type="text" name="adresse" [(ngModel)]="adresse" placeholder="Adresse de livraison" class="input" required>
-  <input type="tel" name="telephone" [(ngModel)]="telephone" placeholder="Téléphone" class="input" required>
 
-  <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded font-semibold">
-    Valider la commande
-  </button>
-</form>
+    <form class="space-y-4" (ngSubmit)="validerCommande()" #commandeForm="ngForm">
+      <input
+        type="text"
+        name="nom"
+        [(ngModel)]="nom"
+        placeholder="Nom complet"
+        class="w-full border border-gray-300 rounded px-4 py-2 text-center"
+        required
+      >
+      <input
+        type="text"
+        name="adresse"
+        [(ngModel)]="adresse"
+        placeholder="Adresse de livraison"
+        class="w-full border border-gray-300 rounded px-4 py-2 text-center"
+        required
+      >
+      <input
+        type="tel"
+        name="telephone"
+        [(ngModel)]="telephone"
+        placeholder="Téléphone"
+        class="w-full border border-gray-300 rounded px-4 py-2 text-center"
+        required
+      >
 
+      <button
+        type="submit"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded font-semibold"
+      >
+        Valider la commande
+      </button>
+    </form>
   </div>
 </div>

@@ -45,6 +45,14 @@ export class RestaurantService {
     lng: 3.0600,
     adresse: "Belouizdad, Alger",
     image: "assets/images/restaurants/asia_food.jpg"
+  },{
+    id: 2,
+    name: "Poulet Doré",
+    plats: ["Poulet rôti", "Poulet frit", "Tenders", "Sandwich poulet"],
+    lat: 36.760200,
+    lng: 3.050400,
+    adresse: "Avenue Pasteur, Alger-Centre",
+    image: "assets/images/restaurants/poulet_dore.png"
   }
 ];
 

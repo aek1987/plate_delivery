@@ -30,8 +30,9 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe(success => {
         if (success) {
           console.log('Connexion réussie !');
-          this.router.navigate(['/dashboard']); // 👈 Redirection
+          this.router.navigate(['/plats']); // 👈 Redirection
         } else {
+           this.router.navigate(['/login']);
           console.log('Échec de la connexion');
         }
       });

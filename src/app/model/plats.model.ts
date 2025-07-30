@@ -1,4 +1,4 @@
-export interface Dish {
+export interface plat {
   id: number;
   title: string;
   description: string;

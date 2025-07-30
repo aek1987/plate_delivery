@@ -1,7 +1,9 @@
+import { plat } from "./plats.model";
+
 export interface Restaurant {
   id: number;
   name: string;
-  plats: string[];
+  plats:  string[];
   lat: number;
   lng: number;
   adresse: string;

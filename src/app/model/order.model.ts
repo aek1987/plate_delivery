@@ -1,9 +1,9 @@
-import { Dish } from "./dish.model";
+import { plat } from "./plats.model";
 
 export interface Order {
   id: number;
   userId: number;
-  dishes: Dish[];
+  dishes: plat[];
   total: number;
   status: 'pending' | 'confirmed' | 'delivered';
   createdAt: Date;
