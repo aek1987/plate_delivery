@@ -1,0 +1,48 @@
+<!-- profil.component.html -->
+<div class="p-4">
+  <h2 class="text-2xl font-bold mb-4">Profil Utilisateur</h2>
+
+  <!-- Informations personnelles -->
+  <div class="mb-6 border-b pb-4">
+    <p><strong>Nom :</strong> {{ user.name }}</p>
+    <p><strong>Email :</strong> {{ user.email }}</p>
+    <p><strong>Rôle :</strong> {{ user.role }}</p>
+  </div>
+
+  <!-- Historique commandes pour client -->
+  <div *ngIf="user.role === 'client'">
+    <h3 class="text-xl font-semibold">Mes commandes</h3>
+    <ul>
+      <li *ngFor="let cmd of commandes">
+        Commande n° {{ cmd.id }} - {{ cmd.status }} -  <!-- {{ cmd.total }} DA-->
+      </li>
+    </ul>
+  </div>
+
+  <!-- Gestion des commandes pour chef de réseau -->
+  <div *ngIf="user.role === 'gerant'">
+    <h3 class="text-xl font-semibold">Commandes en attente</h3>
+    <ul>
+      <li *ngFor="let cmd of commandes">
+        Client: {{ cmd.telephone }} - {{ cmd.status }}
+        <button (click)="marquerLivree(cmd)">Marquer comme livrée</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Panneau admin complet -->
+  <div *ngIf="user.role === 'admin'">
+    <h3 class="text-xl font-bold mt-6">Utilisateurs</h3>
+    <ul>
+      <li *ngFor="let u of users">{{ u.name }} - {{ u.role }}</li>
+    </ul>
+
+    <h3 class="text-xl font-bold mt-4">Toutes les commandes</h3>
+    <ul>
+      <li *ngFor="let c of commandes">
+        Client: {{ c.telephone }} - Status: {{ c.status }} - {{ c.dateCommande }} DA
+        <button (click)="voirDetails(c)">Détails</button>
+      </li>
+    </ul>
+  </div>
+</div>

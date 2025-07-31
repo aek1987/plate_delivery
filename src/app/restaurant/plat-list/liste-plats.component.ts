@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Product, ProductService } from '../../services/product.service';
+import { GeoService } from '../../services/geo.service';
 
 @Component({
   selector: 'app-liste-plats',
@@ -89,12 +90,32 @@ popularProducts: Product[] = [];
   }
 ];
 
- constructor(private productService: ProductService,private router: Router) {}
+ 
+ constructor(private productService: ProductService,private router: Router,private geoService: GeoService) {}
+  ngOnInit(): void {
+    
+    this.productService.getPopularProducts().subscribe(products => {
+      this.popularProducts = products;
+    });
+    this.detectLocation();
+  }
 searchPlat(plat: string) {
   this.searchTerm = plat;
+  this.detectLocation() 
   this.navigateToResults();
 }
-
+  detectLocation(): void {
+    this.geoService.getCurrentLocation()
+      .then(position => {
+        this.clientLatitude = position.coords.latitude;
+        this.clientLongitude = position.coords.longitude;
+        this.locationMessage = `📍 ${this.clientLatitude.toFixed(3)}, ${this.clientLongitude.toFixed(3)}`;
+      })
+      .catch(error => {
+        this.locationMessage = '❌ Position introuvable.';
+        console.error(error);
+      });
+  }
 navigateToResults() {
   if (!this.searchTerm || !this.clientLatitude || !this.clientLongitude) {
     alert("Veuillez choisir un plat et autoriser la géolocalisation.");

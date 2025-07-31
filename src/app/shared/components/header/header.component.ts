@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NavBarComponent } from "../../../components/navbar/navbar.component";
+import { NavBarComponent } from "../../../pages/navbar/navbar.component";
 
 @Component({
   selector: 'app-header',

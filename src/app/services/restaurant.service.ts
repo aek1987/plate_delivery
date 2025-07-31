@@ -13,7 +13,7 @@ export class RestaurantService {
   {
     id: 1,
     name: "Pizza Express Alger",
-    plats: ["Pizza", "Tacos"],
+    plats: ["Pizza", "Tacos","Pizza Margherita","Tacos Poulet"],
     lat: 36.752887,
     lng: 3.042048,
     adresse: "Rue Didouche Mourad, Alger",
@@ -52,7 +52,7 @@ export class RestaurantService {
     lat: 36.760200,
     lng: 3.050400,
     adresse: "Avenue Pasteur, Alger-Centre",
-    image: "assets/images/restaurants/poulet_dore.png"
+    image: "assets/images/restaurants/poulet-dore.jpeg"
   }
 ];
 

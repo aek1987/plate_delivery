@@ -19,27 +19,44 @@
         class="w-full border border-gray-300 rounded px-4 py-2 text-center"
         required
       >
-      <input
-        type="text"
-        name="adresse"
-        [(ngModel)]="adresse"
-        placeholder="Adresse de livraison"
-        class="w-full border border-gray-300 rounded px-4 py-2 text-center"
-        required
-      >
-      <input
-        type="tel"
-        name="telephone"
-        [(ngModel)]="telephone"
-        placeholder="Téléphone"
-        class="w-full border border-gray-300 rounded px-4 py-2 text-center"
-        required
-      >
+     <!-- Champ d'adresse de livraison -->
 
-      <button
-        type="submit"
-        class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded font-semibold"
-      >
+   <input
+  type="tel"
+  name="telephone"
+  [(ngModel)]="telephone"
+  placeholder="Téléphone (ex: 0555123456)"
+  class="w-full border border-gray-300 rounded px-4 py-2 text-center"
+  required
+  pattern="^0[567]\d{8}$"
+  #tel="ngModel"
+/>
+<div *ngIf="tel.invalid && tel.touched" class="text-red-600 text-sm text-center">
+  Numéro invalide. Ex: 0555123456
+</div>
+<input
+  type="text"
+  name="adresse"
+  [(ngModel)]="adresse"
+  placeholder="Adresse de livraison"
+  class="w-full border border-gray-300 rounded px-4 py-2 text-center"
+  required
+/>
+<!-- Bouton pour utiliser la position actuelle -->
+<button
+  (click)="utiliserPositionActuelle()"
+  class="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+>
+  📍 Utiliser ma position actuelle
+</button>
+
+<!-- Affichage optionnel d'une carte -->
+<div id="map" class="h-64 mt-4 rounded shadow border" *ngIf="afficherCarte"></div>
+
+
+ 
+
+      <button   type="submit"  class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded font-semibold" >
         Valider la commande
       </button>
     </form>
