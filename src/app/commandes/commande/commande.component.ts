@@ -65,27 +65,22 @@ utiliserPositionActuelle() {
 
 
 validerCommande() {
-  
- 
-  
-  
-  if (this.nom && this.adresse && this.telephone) {
-    console.log("Commande validée !");
-    console.log("Nom :", this.nom);
-    console.log("Adresse :", this.adresse);
-    console.log("Téléphone :", this.telephone);
-    console.log("Plat :", this.selectedPlat);
-    console.log("Restaurant :", this.restaurant?.name);
+  if (this.nom && this.adresse && this.telephone && this.selectedPlat && this.restaurant) {
+    const nouvelleCommande: Commande = {
+      nomClient: this.nom,
+      adresseLivraison: this.adresse,
+      telephone: this.telephone,
+      plat: this.selectedPlat, // plat complet (type plat)
+      restaurant: this.restaurant.name,
+      dateCommande: new Date(),
+      status: 'en_attente',
+    };
 
-    alert("🎉 Votre commande a été envoyée avec succès !");
-    // Tu peux ensuite rediriger ou envoyer vers un service ici.
+    this.commandeService.enregistrerCommande(nouvelleCommande);
+    alert('Commande enregistrée localement !');
   } else {
-    alert("Merci de remplir tous les champs.");
+    alert('Veuillez remplir tous les champs');
   }
-
-  
-    
-
 }
 
 }

@@ -11,12 +11,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavBarComponent {
-  isOpen = false;
-  isLoggedIn = true;
-userName = 'Kader';
+  isOpen = true;
+  isLoggedIn = false;
+  userName = 'Kader';
 constructor(private router: Router, private authService: AuthService) {}
 ngOnInit() {
-  const user = localStorage.getItem('user');
+  const user = localStorage.getItem('currentUser');
   if (user) {
     this.isLoggedIn = true;
     this.userName = JSON.parse(user).name;
@@ -24,7 +24,7 @@ ngOnInit() {
 }
 
 logout() {
-  localStorage.removeItem('user');
+  localStorage.removeItem('currentUser');
   this.isLoggedIn = false;
   this.router.navigate(['/login']);
 

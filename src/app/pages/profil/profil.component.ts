@@ -17,13 +17,23 @@ import { User } from '../../model/user.model';
 })
 export class ProfilComponent implements OnInit {
 
+
+ngOnInit(): void {
+    this.loadUser();
+  this.commandeService.chargerCommandesDepuisLocalStorage();
+
+  this.commandeService.getCommandes().subscribe(commandes => {
+    console.log('Commandes chargées :', commandes);
+  });
+}
+
   user: User = {
     id: 0,
     name: '',
     email: '',
     adresse: '',
     telephone: '',
-    role: 'client'
+    role: 'admin'
   };
 
   locationMessage: string = '';
@@ -37,9 +47,7 @@ export class ProfilComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  ngOnInit(): void {
-    this.loadUser();
-  }
+  
 
  loadUser(): void {
   this.authService.getCurrentUser().subscribe((res: User | null) => {

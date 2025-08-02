@@ -1,48 +1,56 @@
 <!-- profil.component.html -->
-<div class="p-4">
-  <h2 class="text-2xl font-bold mb-4">Profil Utilisateur</h2>
+<div class="bg-white rounded-xl shadow-md p-6 space-y-6">
+  <h2 class="text-3xl font-bold text-indigo-600 border-b pb-2">Profil Utilisateur</h2>
 
-  <!-- Informations personnelles -->
-  <div class="mb-6 border-b pb-4">
-    <p><strong>Nom :</strong> {{ user.name }}</p>
-    <p><strong>Email :</strong> {{ user.email }}</p>
-    <p><strong>Rôle :</strong> {{ user.role }}</p>
+  <!-- Infos perso -->
+  <div>
+    <p><span class="font-semibold text-gray-700">Nom :</span> {{ user.name }}</p>
+    <p><span class="font-semibold text-gray-700">Email :</span> {{ user.email }}</p>
+    <p><span class="font-semibold text-gray-700">Rôle :</span> {{ user.role }}</p>
   </div>
 
-  <!-- Historique commandes pour client -->
-  <div *ngIf="user.role === 'client'">
-    <h3 class="text-xl font-semibold">Mes commandes</h3>
-    <ul>
+  <!-- Commandes client -->
+  <div *ngIf="user.role === 'client'" class="pt-4 border-t">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Mes Commandes</h3>
+    <ul class="list-disc pl-5 space-y-1 text-gray-600">
       <li *ngFor="let cmd of commandes">
-        Commande n° {{ cmd.id }} - {{ cmd.status }} -  <!-- {{ cmd.total }} DA-->
+        Commande n° <span class="font-medium">{{ cmd.id }}</span> - {{ cmd.status }}
       </li>
     </ul>
   </div>
 
-  <!-- Gestion des commandes pour chef de réseau -->
-  <div *ngIf="user.role === 'gerant'">
-    <h3 class="text-xl font-semibold">Commandes en attente</h3>
-    <ul>
-      <li *ngFor="let cmd of commandes">
-        Client: {{ cmd.telephone }} - {{ cmd.status }}
-        <button (click)="marquerLivree(cmd)">Marquer comme livrée</button>
+  <!-- Gestion commandes gérant -->
+  <div *ngIf="user.role === 'gerant'" class="pt-4 border-t">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Commandes en attente</h3>
+    <ul class="space-y-2">
+      <li *ngFor="let cmd of commandes" class="flex justify-between items-center bg-gray-50 p-2 rounded">
+        <span>Client: {{ cmd.telephone }} - {{ cmd.status }}</span>
+        <button (click)="marquerLivree(cmd)" class="px-3 py-1 text-sm bg-green-600 text-white rounded hover:bg-green-700">
+          Marquer comme livrée
+        </button>
       </li>
     </ul>
   </div>
 
-  <!-- Panneau admin complet -->
-  <div *ngIf="user.role === 'admin'">
-    <h3 class="text-xl font-bold mt-6">Utilisateurs</h3>
-    <ul>
-      <li *ngFor="let u of users">{{ u.name }} - {{ u.role }}</li>
-    </ul>
+  <!-- Admin -->
+  <div *ngIf="user.role === 'admin'" class="pt-4 border-t space-y-4">
+    <div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Utilisateurs</h3>
+      <ul class="text-gray-600">
+        <li *ngFor="let u of users">{{ u.name }} - <span class="font-medium">{{ u.role }}</span></li>
+      </ul>
+    </div>
 
-    <h3 class="text-xl font-bold mt-4">Toutes les commandes</h3>
-    <ul>
-      <li *ngFor="let c of commandes">
-        Client: {{ c.telephone }} - Status: {{ c.status }} - {{ c.dateCommande }} DA
-        <button (click)="voirDetails(c)">Détails</button>
-      </li>
-    </ul>
+    <div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Toutes les commandes</h3>
+      <ul class="space-y-2">
+        <li *ngFor="let c of commandes" class="flex justify-between items-center bg-gray-50 p-2 rounded">
+          <span>Client: {{ c.telephone }} - Status: {{ c.status }} - {{ c.dateCommande }}</span>
+          <button (click)="voirDetails(c)" class="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+            Détails
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

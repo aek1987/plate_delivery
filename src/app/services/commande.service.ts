@@ -7,6 +7,7 @@ import { Commande } from '../model/commande';
 })
 export class CommandeService {
   private commandes: Commande[] = [];
+  private readonly STORAGE_KEY = 'commandes';
 
   ajouterCommande(commande: Commande): void {
     this.commandes.push(commande);
@@ -40,4 +41,16 @@ export class CommandeService {
       commande.status = nouveauStatut;
     }
   }
+
+enregistrerCommande(commande: Commande): void {
+  const data = localStorage.getItem(this.STORAGE_KEY);
+  const commandes: Commande[] = data ? JSON.parse(data) : [];
+  commandes.push(commande);
+  localStorage.setItem(this.STORAGE_KEY, JSON.stringify(commandes));
+}
+chargerCommandesDepuisLocalStorage(): void {
+  const data = localStorage.getItem(this.STORAGE_KEY);
+  this.commandes = data ? JSON.parse(data) : [];
+}
+
 }

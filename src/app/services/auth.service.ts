@@ -22,7 +22,7 @@ export class AuthService {
         email: email,
         password: password,
         adresse: '',
-        role:"client",
+        role:"admin",
         telephone: '',
       };
       this.setCurrentUser(fakeUser);
